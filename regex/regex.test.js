@@ -21,10 +21,10 @@ which end with io (example@example.io) */
 // let result1;
 
 function ioEmail(email) {
-    let    regex = /(([a-z]{2})$)?([a-z]{7}?([a-z]{7}))/
-   
-       result1 = regex.test(email)
-       return result1;
+    let x = /^[a-z]{7}/
+    let y = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    return x.test(email) && y.test(email);
+
 }
 
 /* You have a text that contain image names with their extention you need to write a function to 
@@ -33,20 +33,30 @@ find all images in that text and return their names and extention in an array
 required extention are jpg, jpeg and png.
 
 */
-let result1;
-let result2;
-let result3;
 
-function imagesSearcher(text) {
-    let arr = [];
-    result1 = text.match(/[a-z][a-z][a-z].png/g);
-    result2 = text.match(/[a-z][a-z][a-z].jpg/g);
-    result3 = text.match(/[a-z][a-z][a-z].jpeg/g);
-    arr[0]=result1;
-    arr[1]=result2;
-    arr[2]=result3;
-    return arr;
+
+function imagesSearcher(text){
+    let enemalsImg = [];
+    // Add your logic.
+    let worlds=text.split(" ");
+    worlds.forEach((element)=>{
+        if(element.match(/[a-z][a-z][a-z].png/)){
+            enemalsImg.push(element)
+        }
+        else if (element.match(/[a-z][a-z][a-z].jpg/)){
+            enemalsImg.push(element)
+        }
+        else if (element.match(/[a-z][a-z][a-z].jpeg/)){
+            enemalsImg.push(element)
+        }
+    })
+    return enemalsImg;
 }
+
+           
+        
+    
+
 
 
 describe("Test capitalA", () => {

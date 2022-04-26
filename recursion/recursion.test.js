@@ -2,7 +2,9 @@
 let result = 0;
 
 function division(number, dividedBy) {
-
+    if (dividedBy == 0 || number==0) {
+        return 0;
+    }
 
     while (number >= dividedBy) {
         number -= dividedBy;
